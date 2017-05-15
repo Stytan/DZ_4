@@ -7,13 +7,7 @@ namespace DZ_4
 	/// </summary>
 	public abstract class GeometricFigure
 	{
-		private double square;
-		private double perimeter;
-		public double Square{
-			get{ return square; }
-		}
-		public double Perimeter{
-			get{ return perimeter; }
-		}
+		public abstract double Square{ get; }
+		public abstract double Perimeter{ get; }
 	}
 }
