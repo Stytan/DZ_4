@@ -2,18 +2,19 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Foursquare.
-	/// </summary>
-	public class Foursquare : GeometricFigure, SimpleNgon
+	public class Foursquare : GeometricFigure, ISimpleNgonable
 	{
 		private readonly double a;
 		public double A {
 			get{ return a; }
 		}
+		/// <summary>
+		/// Квадрат
+		/// </summary>
+		/// <param name="A">Длинна стороны</param>
 		public Foursquare(double A)
 		{
-			if (a <= 0)
+			if (A <= 0)
 				throw new NegativeSideException();
 			a = A;
 		}
@@ -21,13 +22,13 @@ namespace DZ_4
 		#region implemented abstract members of GeometricFigure
 		public override double Square {
 			get {
-				return A*A;
+				return A * A;
 			}
 		}
 
 		public override double Perimeter {
 			get {
-				return 4*A;
+				return 4 * A;
 			}
 		}
 		#endregion
@@ -35,8 +36,7 @@ namespace DZ_4
 		#region implemented abstract members of SimpleNgon
 		public double LengthOfSide(int N)
 		{
-			switch(N)
-			{
+			switch (N) {
 				case 0:
 				case 1:
 				case 2:
@@ -71,7 +71,7 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Foursquare A={0:#0.#}, Perimeter={1:#0.#}, Square={2:#0.#}]",
-			                     a, Perimeter, Square);
+				a, Perimeter, Square);
 		}
 	}
 }
