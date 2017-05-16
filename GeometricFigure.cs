@@ -3,7 +3,7 @@ using System;
 namespace DZ_4
 {
 	/// <summary>
-	/// Description of GeometricFigure.
+	/// Геометрическая фигура
 	/// </summary>
 	public abstract class GeometricFigure
 	{
