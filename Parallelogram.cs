@@ -2,22 +2,10 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Parallelogram.
-	/// </summary>
-	public class Parallelogram : GeometricFigure, SimpleNgon
+	public class Parallelogram : GeometricFigure, ISimpleNgonable
 	{
-		/// <summary>
-		/// Стороны параллелограмма
-		/// </summary>
 		private readonly double a, b;
-		/// <summary>
-		/// Угол между сторонами (в градусах)
-		/// </summary>
 		private readonly float angle;
-		/// <summary>
-		/// Высота параллелограмма
-		/// </summary>
 		private readonly double h;
 		public double A {
 			get{ return a; }
@@ -31,6 +19,12 @@ namespace DZ_4
 		public double H {
 			get{ return h; }
 		}
+		/// <summary>
+		/// Параллелограмм
+		/// </summary>
+		/// <param name="A">Длинна стороны A</param>
+		/// <param name="B">Длинна стороны B</param>
+		/// <param name="Angle">Угол между сторонами, градусы</param>
 		public Parallelogram(double A, double B, float Angle)
 		{
 			if (A <= 0 || B <= 0)
@@ -44,6 +38,12 @@ namespace DZ_4
 			angle = Angle;
 			h = (A > B ? B : A) * Math.Sin(Angle / 180 * Math.PI);
 		}
+		/// <summary>
+		/// Параллелограмм
+		/// </summary>
+		/// <param name="A">Длинна стороны A</param>
+		/// <param name="B">Длинна стороны B</param>
+		/// <param name="H">Высота</param>
 		public Parallelogram(double A, double B, double H)
 		{
 			if (A <= 0 || B <= 0 || H <= 0)
@@ -53,8 +53,10 @@ namespace DZ_4
 			a = A;
 			b = B;
 			h = H;
-			angle = (float) (Math.Asin(H / (A > B ? B : A)) * 180 / Math.PI);
+			angle = (float)(Math.Asin(H / (A > B ? B : A)) * 180 / Math.PI);
 		}
+		
+		#region implemented abstract members of GeometricFigure
 		public override double Perimeter {
 			get {
 				return (A + B) * 2;
@@ -65,10 +67,12 @@ namespace DZ_4
 				return H * (A > B ? A : B);
 			}
 		}
+		#endregion
+		
+		#region implemented abstract members of SimpleNgon
 		public double LengthOfSide(int N)
 		{
-			switch(N)
-			{
+			switch (N) {
 				case 0:
 				case 2:
 					return A;
@@ -99,11 +103,13 @@ namespace DZ_4
 				return 4;
 			}
 		}
+		#endregion
+		
 		public override string ToString()
 		{
 			return string.Format("[Parallelogram A={0:#0.#}, B={1:#0.#}, " +
-			                     "Angle={2:#0.#}, H={3:#0.#}, Perimeter={4:#0.#}, Square={5:#0.#}]",
-			                      a, b, angle, h, Perimeter, Square);
+			"Angle={2:#0.#}, H={3:#0.#}, Perimeter={4:#0.#}, Square={5:#0.#}]",
+				a, b, angle, h, Perimeter, Square);
 		}
 	}
 }
