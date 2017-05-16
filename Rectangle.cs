@@ -2,10 +2,7 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Rectangle.
-	/// </summary>
-	public class Rectangle : GeometricFigure, SimpleNgon
+	public class Rectangle : GeometricFigure, ISimpleNgonable
 	{
 		private readonly double a, b;
 		public double A {
@@ -14,6 +11,11 @@ namespace DZ_4
 		public double B {
 			get{ return b; }
 		}
+		/// <summary>
+		/// Прямоугольник
+		/// </summary>
+		/// <param name="A">Длинна стороны A</param>
+		/// <param name="B">Длинна стороны B</param>
 		public Rectangle(double A, double B)
 		{
 			if (A <= 0 || B <= 0)
@@ -39,8 +41,7 @@ namespace DZ_4
 		#region implemented abstract members of SimpleNgon
 		public double LengthOfSide(int N)
 		{
-			switch(N)
-			{
+			switch (N) {
 				case 0:
 				case 2:
 					return A;
@@ -76,8 +77,8 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Rectangle A={0:#0.#}, B={1:#0.#}" +
-			                     "Perimeter={2:#0.#}, Square={3:#0.#]",
-			                     a, b, Perimeter, Square);
+			"Perimeter={2:#0.#}, Square={3:#0.#}]",
+				a, b, Perimeter, Square);
 		}
 	}
 }
