@@ -3,9 +3,9 @@ using System;
 namespace DZ_4
 {
 	/// <summary>
-	/// Description of SimpleNgon.
+	/// Интерфейс Простой n-угольник
 	/// </summary>
-	public interface SimpleNgon
+	public interface ISimpleNgonable
 	{
 		double Height{ get; }
 		double Baze{ get; }
