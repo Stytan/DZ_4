@@ -2,10 +2,7 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Triangle.
-	/// </summary>
-	public class Triangle : GeometricFigure, SimpleNgon
+	public class Triangle : GeometricFigure, ISimpleNgonable
 	{
 		private readonly double a, b, c;
 		public double A {
@@ -71,13 +68,17 @@ namespace DZ_4
 				return 3;
 			}
 		}
-		public double LengthOfSide (int N) {
-			switch(N)
-			{
-			case 0: return A;
-			case 1: return B;
-			case 2: return C;
-			default: throw new ArgumentOutOfRangeException();
+		public double LengthOfSide(int N)
+		{
+			switch (N) {
+				case 0:
+					return A;
+				case 1:
+					return B;
+				case 2:
+					return C;
+				default:
+					throw new ArgumentOutOfRangeException();
 			}
 		}
 		#endregion
@@ -85,7 +86,7 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Triangle A={0:#0.#}, B={1:#0.#}, C={2:#0.#}," +
-			"Perimeter={3:#0.#}, Square={4:#0.#]",
+			"Perimeter={3:#0.#}, Square={4:#0.#}]",
 				a, b, c, Perimeter, Square);
 		}
 	}
