@@ -1,21 +1,28 @@
 using System;
-using System.Runtime.Serialization;
 
 namespace DZ_4
 {
 	[Serializable]
 	/// <summary>
-	/// Description of NegativeSideException.
+	/// Исключение - введены отрицательные значения
 	/// </summary>
 	public class NegativeSideException : ApplicationException
 	{
-		public NegativeSideException() : base("A negative value for the side is set") { }
+		public NegativeSideException()
+			: base("A negative value for the side is set")
+		{}
 
-        public NegativeSideException(string message) : base(message) { }
+		public NegativeSideException(string message)
+			: base(message)
+		{}
 
-        public NegativeSideException(string message, Exception inner) : base(message, inner) { }
+		public NegativeSideException(string message, Exception inner)
+			: base(message, inner)
+		{}
 
-        protected NegativeSideException(System.Runtime.Serialization.SerializationInfo info,
-                                        System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+		protected NegativeSideException(System.Runtime.Serialization.SerializationInfo info,
+			System.Runtime.Serialization.StreamingContext context)
+			: base(info, context)
+		{}
 	}
 }
