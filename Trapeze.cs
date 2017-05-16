@@ -2,22 +2,10 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Trapeze.
-	/// </summary>
-	public class Trapeze : GeometricFigure, SimpleNgon
+	public class Trapeze : GeometricFigure, ISimpleNgonable
 	{
-		/// <summary>
-		/// Длины оснований
-		/// </summary>
 		private readonly double a, b;
-		/// <summary>
-		/// Длина бедра
-		/// </summary>
 		private readonly double c, d;
-		/// <summary>
-		/// Угол между бедром "с" и одним из оснований 
-		/// </summary>
 		private readonly float angle;
 		public double A {
 			get{ return a; }
@@ -55,7 +43,7 @@ namespace DZ_4
 			a = A;
 			b = B;
 			c = C;
-			d = Math.Sqrt(Math.Pow(Math.Abs(A - B) - Math.Cos(Angle / 180 * Math.PI) * C,2) + Math.Pow(H,2));
+			d = Math.Sqrt(Math.Pow(Math.Abs(A - B) - Math.Cos(Angle / 180 * Math.PI) * C, 2) + Math.Pow(H, 2));
 			angle = Angle;
 		}
 		
@@ -75,8 +63,7 @@ namespace DZ_4
 		#region implemented abstract members of SimpleNgon
 		public double LengthOfSide(int N)
 		{
-			switch(N)
-			{
+			switch (N) {
 				case 0:
 					return A;
 				case 1:
@@ -113,9 +100,9 @@ namespace DZ_4
 		
 		public override string ToString()
 		{
-			return string.Format("[Trapeze A={0:#0.#}, B={1:#0.#}, C={2:#0.#}, Angle={3:#0.#} "+
-			                     "H={4:#0.#}, Perimeter={5:#0.#}, Square={6:#0.#}]",
-			                     a, b, c, angle, H, Perimeter, Square);
+			return string.Format("[Trapeze A={0:#0.#}, B={1:#0.#}, C={2:#0.#}, Angle={3:#0.#} " +
+			"H={4:#0.#}, Perimeter={5:#0.#}, Square={6:#0.#}]",
+				a, b, c, angle, H, Perimeter, Square);
 		}
 	}
 }
