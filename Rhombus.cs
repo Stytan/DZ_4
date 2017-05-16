@@ -2,10 +2,7 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Rhombus.
-	/// </summary>
-	public class Rhombus : GeometricFigure, SimpleNgon
+	public class Rhombus : GeometricFigure, ISimpleNgonable
 	{
 		private readonly double a;
 		private readonly double angle;
@@ -15,6 +12,11 @@ namespace DZ_4
 		public double Angle {
 			get{ return angle; }
 		}
+		/// <summary>
+		/// Ромб
+		/// </summary>
+		/// <param name="A">Длинна стороны</param>
+		/// <param name="Angle">Угол между сторонами, градусы</param>
 		public Rhombus(double A, double Angle)
 		{
 			if (A <= 0)
@@ -44,8 +46,7 @@ namespace DZ_4
 		#region implemented abstract members of SimpleNgon
 		public double LengthOfSide(int N)
 		{
-			switch(N)
-			{
+			switch (N) {
 				case 0:
 				case 1:
 				case 2:
@@ -80,8 +81,8 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Rhombus A={0:#0.#}, Angle={1:#0.#}" +
-			                     "Perimeter={2:#0.#}, Square={3:#0.#]",
-			                     a, angle, Perimeter, Square);
+			"Perimeter={2:#0.#}, Square={3:#0.#}]",
+				a, angle, Perimeter, Square);
 		}
 	}
 }
