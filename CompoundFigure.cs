@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DZ_4
 {
 	/// <summary>
-	/// Description of CompoundFigure.
+	/// Составная фигура
 	/// </summary>
 	public class CompoundFigure
 	{
@@ -22,6 +22,32 @@ namespace DZ_4
 			foreach (GeometricFigure f in figures)
 				Sum += f.Square;
 			return Sum;
+		}
+		public MyEnumerator GetEnumerator()
+		{
+			return new MyEnumerator(this);
+		}
+		public class MyEnumerator
+		{
+			int nIndex;
+			CompoundFigure collection;
+			public MyEnumerator(CompoundFigure coll)
+			{
+				collection = coll;
+				nIndex = -1;
+			}
+
+			public bool MoveNext()
+			{
+				nIndex++;
+				return(nIndex < collection.figures.Count);
+			}
+
+			public GeometricFigure Current {
+				get {
+					return(collection.figures[nIndex]);
+				}
+			}
 		}
 	}
 }
