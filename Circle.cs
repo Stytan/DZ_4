@@ -2,15 +2,16 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Circle.
-	/// </summary>
-	public class Circle : GeometricFigure, SimpleNgon
+	public class Circle : GeometricFigure, ISimpleNgonable
 	{
 		private readonly double r;
 		public double R {
 			get { return r; }
 		}
+		/// <summary>
+		/// Круг
+		/// </summary>
+		/// <param name="R">Радиус</param>
 		public Circle(double R)
 		{
 			if (R <= 0)
@@ -19,7 +20,6 @@ namespace DZ_4
 		}
 
 		#region implemented abstract members of GeometricFigure
-
 		public override double Square {
 			get {
 				return Math.PI * R * R;
@@ -63,8 +63,8 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Circle R={0:#0.#}, " +
-			                     "Perimeter={1:#0.#}, Square={2:#0.#}]",
-			                     r, Perimeter, Square);
+			"Perimeter={1:#0.#}, Square={2:#0.#}]",
+				r, Perimeter, Square);
 		}
 	}
 }
