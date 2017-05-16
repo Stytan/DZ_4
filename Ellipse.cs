@@ -2,10 +2,7 @@ using System;
 
 namespace DZ_4
 {
-	/// <summary>
-	/// Description of Ellipse.
-	/// </summary>
-	public class Ellipse : GeometricFigure, SimpleNgon
+	public class Ellipse : GeometricFigure, ISimpleNgonable
 	{
 		public readonly double A, B;
 		/// <summary>
@@ -64,8 +61,8 @@ namespace DZ_4
 		public override string ToString()
 		{
 			return string.Format("[Ellipse A={0:#0.#}, B={1:#0.#}, " +
-			                     "Perimeter={2:#0.#}, Square={3:#0.#}]",
-			                     A, B, Perimeter, Square);
+			"Perimeter={2:#0.#}, Square={3:#0.#}]",
+				A, B, Perimeter, Square);
 		}
 	}
 }
